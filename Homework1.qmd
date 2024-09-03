@@ -1,0 +1,45 @@
+---
+title: "Homework1_EmilyRowen"
+format: html
+editor: visual
+---
+
+[1. How does geographic analysis fit into your goals for your research? Given our discussion of the aims and limitations of geographic analysis, are there particular issues that you would like to know more about or guard against?]{style="color:#0000FF"}
+
+Geographic analysis would allow me to add depth to qualitative data by potentially adding spatial components to themes that arise. This could look like describing the geographic features that surround participants that might explain why certain themes are prevalent. An issue that accompanies this kind of integration is the subjectivity of qualitative data can be constrained by trying to define it spatially. I would like to know more about what "best practices" exist for integrating or connecting qualitative data with spatial representations.
+
+[2. What are the primary components that describe spatial data?]{style="color:#0000FF"}
+
+The primary components of spatial data are an attribute (Z) observed at a location (s) within a domain of data (D) that is a subset of the possible coordinates (R^d^).
+
+[3. What is the coordinate reference system and why is it important]{style="color:#0000FF"}
+
+Coordinate reference systems describe projections (how the data was translated to a flat surface) and include information such as the datum and ellipsoid. Each coordinate reference system optimizes different attributes (distance, area, angle etc.) so it is important to consider which elements might be important to preserve for your project (or vice versa-to know what you might be sacrificing by choosing one CRS over another).
+
+[4. Find two maps of the same area in different projections? How does the projection affect your perception of the data being displayed?]{style="color:#0000FF"}
+
+I used the website below to compare an American Polyconic projection to a Bacon projection of the world. The polyconic projection seems to stretch everything along a curve except for Africa and Antarctica. Greenland appears especially small! The Bacon projection seems to stretch the continents in the Southern hemisphere so that they appear longer (north to south) than they might actually be. It is also difficult to understand how far the Pacific Ocean is between North America and Asia since these are the edges of the map and aren't connected.\\
+
+\<https://map-projections.net/compare.php?p1=american-polyconic-global&p2=bacon-global&sps=1\>
+
+[5. Read in the \`cejst.shp\` file in the \`assignment01\` folder. How many attributes describe each object? How many unique geometries are there? What is the coordinate reference system?]{style="color:#0000FF"}
+
+Attributes: 123
+
+Unique Geometries: 6
+
+CRS: WGS84
+
+```{r}
+library(tidyverse)
+library(sf)
+
+shapefile.inR <-read_sf(dsn = "/opt/data/data/assignment01/cejst_nw.shp")
+
+str(shapefile.inR)
+
+st_crs(shapefile.inR)
+
+head(shapefile.inR)
+```
+
